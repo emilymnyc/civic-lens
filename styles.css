@@ -1,65 +1,260 @@
-/* CSS by ///ADD/// YOUR NAME */
+/* CSS by EMILY MERAZ */
 
-/* Imported Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
-/* ///ADD/// CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
 
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+  display: block;
+}
 
-/* Root Variables */
+body {
+  line-height: 1.5;
+  font-family: "Source Sans 3", sans-serif;
+  background: #F1FAEE;
+  color: #333;
+}
+
 :root {
   --blue-bulletin: #1D3557;
   --news-flash: #E63946;
   --watchdog-white: #F1FAEE;
-  --truth-text: #333;
-  --story-subtitle: #457B9D;
-  --font-body: "Source Sans 3", sans-serif;
-  --font-heading: 'Merriweather', serif;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  --transition: all 0.5s ease;
+  --shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* Manual Light/Dark Mode Styles*/
-body.light-mode {
-  background-color: var(--watchdog-white);
-  color: var(--truth-text);
+header {
+  background: var(--blue-bulletin);
+  color: white;
+  padding: 1rem 2rem;
 }
-body.dark-mode {
-  background-color: var(--truth-text);
-  color: var(--watchdog-white);
+
+h1 {
+  font-family: "Merriweather", serif;
+  font-size: 2.2rem;
 }
-#theme-toggle {
+
+.tagline {
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+#main .tagline {
+  font-weight: bold;
+  text-align: center;
+}
+
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+.skip-link:focus{
   position: absolute;
+  left: 1rem;
   top: 1rem;
-  right: 1rem;
-  background-color: var(--watchdog-white);
-  border: 1px solid var(--blue-bulletin);
-  border-radius: 1.5rem;
-  cursor: pointer;
+  width: auto;
+  height: auto;
+  background: var(--news-flash);
+  color: white;
+  padding: 0.5rem 1rem;
+  z-index: 999;
 }
 
-/* ///ADD/// Skip Link Styles */
+nav ul {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
 
-/* ///ADD/// Navigation Styles */
+nav a {
+  background: var(--news-flash);
+  color: white;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+}
 
-/* ///ADD/// Global Layout Styles */
+main {
+  width: min(1000px, 92%);
+  margin: 2rem auto;
+}
 
-/* ///ADD/// Global Text Styles */
+section {
+  margin-bottom: 2rem;
+}
 
+/* BREAKING NEWS */
+#breaking-news article {
+  width: 48%;
+  float: left;
+  margin-right: 2%;
+  margin-bottom: 1.5rem;
+  background: var(--news-flash);
+  color: white;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
 
-/* ///ADD/// medium styles 620px */
+#breaking-news article:nth-of-type(2n) {
+  margin-right: 0;
+}
 
+#breaking-news::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
-/* ///ADD/// large styles 920px */
+video {
+  width: 100%;
+  margin-top: 0.5rem;
+}
 
+/* FEATURED ARTICLES */
+#featured-articles article {
+  width: 31%;
+  float: left;
+  margin-right: 3.5%;
+  margin-bottom: 1.5rem;
+  background: var(--watchdog-white);
+  border: 3px solid #7e7e7e;
+  padding: 0.9rem;
+  box-sizing: border-box;
+}
 
-/* ///ADD/// x-large styles 1024px */
+#featured-articles article:nth-of-type(3n) {
+  margin-right: 0;
+}
 
+#featured-articles::after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
-/* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
+h2 {
+  font-family: "Merriweather", serif;
+  margin-bottom: 1rem;
+  color: var(--blue-bulletin);
+}
 
+h3 {
+  font-family: "Merriweather", serif;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
 
-/* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
-@supports (selector(:has(*))) {
+p {
+  font-size: 0.9rem;
+}
 
+form {
+  background: var(--news-flash);
+  padding: 1rem;
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+form input {
+  width: 48%;
+  float: left;
+  margin-bottom: 0.5rem;
+}
+
+form input:nth-of-type(2n) {
+  float: right;
+}
+
+form fieldset {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+form fieldset label {
+  width: 33.333%;
+  float: left;
+  margin-bottom: 0.3rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: none;
+}
+
+button {
+  width: 100%;
+  background: var(--blue-bulletin);
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  margin-top: 0.5rem;
+  font-style: caps;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  background: var(--blue-bulletin);
+  color: white;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+}
+
+footer li {
+  display: inline-block;
+  background: var(--news-flash);
+  padding: 0.3rem 0.6rem;
+  margin: 0.2rem;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+footer h2{
+  color: var(--watchdog-white)
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  #breaking-news article,
+  #featured-articles article {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  form input {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  form fieldset label {
+    width: 100%;
+  }
 }
